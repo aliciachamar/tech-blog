@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Why Blogs Are the Best",
+        "text": "Blogs are seriously the best, and it's because you can post anything you want for the world to see. You get to share your thoughts and ideas with a wide audience.",
+        "dateCreated": "2021-08-02",
+        "userId": 1
+    },
+    {
+        "title": "Why Blogs Are the Worst",
+        "text": "Blogs are not good for the world. We don't need everyone's opinion on everything all the time, and then there's the matter of privacy. That's a debate for another time.",
+        "dateCreated": "2021-08-03",
+        "userId": 2
+    },
+    {
+        "title": "I Love Reading Blogs, But I Would Never Write One",
+        "text": "I adore reading blogs on all sorts of things from nail art to new tech trends. However, I could never write one. I just don't have the creativity or expertise to continually create new content.",
+        "dateCreated": "2021-08-04",
+        "userId": 3
+    }
+]

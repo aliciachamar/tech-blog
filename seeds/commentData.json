@@ -1,0 +1,20 @@
+[
+    {
+        "text": "I totally agree with you! Blogs are a great way to get your ideas out there!",
+        "dateCreated": "2021-08-03",
+        "userId": 2,
+        "postId": 1
+    },
+    {
+        "text": "I think this is a really narrow-minded view. Blogs are a really wonderful addition to the internet, and I value hearing different perspectives.",
+        "dateCreated": "2021-08-04",
+        "userId": 3,
+        "postId": 2
+    },
+    {
+        "text": "I'm right there with you on this. I really love reading blogs, but you'll never see me write my own.",
+        "dateCreated": "2021-08-04",
+        "userId": 1,
+        "postId": 3
+    }
+]
