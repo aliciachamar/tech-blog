@@ -1,9 +1,14 @@
 {{#each posts as |post|}}
 <div>
     <h2>{{post.title}}</h2>
-    <h6>{{post.dateCreated}}</h6>
+    <h4>{{find_username post.userId}}: {{post.dateCreated}}</h4>
     <p>{{post.text}}</p>
     <hr>
-    <h2>Comments:</h2>
+    <h3>Comments:</h3>
+    {{#each post.comments as |comment|}}
+    <p>On {{comment.dateCreated}}, {{find_username comment.userId}} said: <br>
+    {{comment.text}}
+    </p>
+    {{/each}}
 </div>
 {{/each}}
