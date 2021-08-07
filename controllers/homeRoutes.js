@@ -1,17 +1,17 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res) => {
     try {
         const allPosts = await Post.findAll({
-            include: {
-                model: Comment, User
-            }
+            include: [{
+                model: Comment,
+                include: [User]
+            }, User]
         });
         const posts = allPosts.map(post => post.toJSON());
-        const allUsers = await User.findAll();
-        const users = allUsers.map(user => user.toJSON());
-        res.status(200).render("homepage", { posts, users })
+        res.status(200).render("homepage", { posts })
     } catch (e) {
         console.log(e);
         res.status(500).json(e);

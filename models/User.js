@@ -18,7 +18,8 @@ User.init(
         },
         username: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         password: {
             type: DataTypes.STRING,
@@ -29,34 +30,34 @@ User.init(
         }
     },
     {
-        // hooks: {
-        //     beforeBulkCreate: (bulkData) => {
-        //         try {
-        //             bulkData.forEach(async user => {
-        //                 const salt = bcrypt.genSalt(10);
-        //                 user.password = await bcrypt.hash(user.password, salt);
-        //                 return user;
-        //             });
-        //         } catch (e) {
-        //             return e;
-        //         }
-        //     },
-        //     beforeCreate: async (newUserData) => {
-        //         try {
-        //            const salt = bcrypt.genSalt(10);
-        //            newUserData.password = await bcrypt.hash(newUserData.password, salt);
-        //            return newUserData;
-        //         } catch (e) {
-        //             return e;
-        //         }
-        //     }
-        // },
+        hooks: {
+            beforeBulkCreate: (bulkData) => {
+                try {
+                    bulkData.forEach(async user => {
+                        const salt = bcrypt.genSalt(10);
+                        user.password = await bcrypt.hash(user.password, salt);
+                        return user;
+                    });
+                } catch (e) {
+                    return e;
+                }
+            },
+            beforeCreate: async (newUserData) => {
+                try {
+                   const salt = bcrypt.genSalt(10);
+                   newUserData.password = await bcrypt.hash(newUserData.password, salt);
+                   return newUserData;
+                } catch (e) {
+                    return e;
+                }
+            }
+        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'user',
     }
-)
+);
 
 module.exports = User;
