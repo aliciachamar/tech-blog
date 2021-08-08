@@ -19,7 +19,7 @@ const loginFormHandler = async (event) => {
         alert(response.statusText);
       }
     }
-  };
+};
 
 document
 .querySelector('#login-form')
