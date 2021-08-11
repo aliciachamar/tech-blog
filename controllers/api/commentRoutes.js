@@ -10,8 +10,7 @@ router.post("/:id", withAuth, async (req, res) => {
             userId: req.session.user_id,
             postId: req.params.id
         });
-        console.log(req.body.newComment);
-        res.status(200).json(newComment);  
+        res.status(200).redirect(`/api/posts/${req.params.id}`);
     } catch (e) {
         res.status(500).json(e);
     }

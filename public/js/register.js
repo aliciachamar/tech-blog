@@ -10,9 +10,17 @@ const registerFormHandler = async (event) => {
         body: JSON.stringify({ username, password }),
         headers: { 'Content-Type': 'application/json' },
         });
+
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert(response.statusText);
+        }
     } else {
         alert("Please fill out all fields.");
     }
+
+    
 };
 
 document

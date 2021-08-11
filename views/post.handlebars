@@ -1,6 +1,6 @@
-{{#each posts as |post|}}
 <div>
     <h2>{{post.title}}</h2>
+    <p id="postId">{{post.id}}</p>
     <h4>{{post.user.username}}</h4>
     <h5>{{post.dateCreated}}</h5>
     <p>{{post.text}}</p>
@@ -11,10 +11,8 @@
     </p>
     <br>
     {{/each}}
-    <form method="post" action="/api/comments/{{post.id}}">
+    <form id="comment-form" method="post" action="/api/comments/{{post.id}}">
         <textarea name="newComment" id="newComment" cols="50" rows="5" placeholder="Leave a comment..."></textarea>
         <input type="submit" value="submit">
     </form>
-    <hr>
 </div>
-{{/each}}

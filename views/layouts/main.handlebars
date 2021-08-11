@@ -13,9 +13,12 @@
         <h1>The Tech Blog</h1>
         <nav>
             <a href="/">Home</a>
-            <a href="/dashboard">Dashboard</a>
+            <a href="/api/users/dashboard">Dashboard</a>
+            {{#if logged_in}}
+            <a href="#" id="logout">Logout</a>
+            {{else}}
             <a href="/api/users/login">Login</a>
-            <a href="/logout" id="logout">Logout</a>
+            {{/if}}
         </nav>
     </header>
 
@@ -23,3 +26,7 @@
     
 </body>
 </html>
+
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+{{/if}}

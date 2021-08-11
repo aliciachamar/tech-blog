@@ -3,8 +3,8 @@ const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
 class User extends Model {
-    checkPassword (pwAttempt) {
-        return bcrypt.compareSync(pwAttempt, this.password);
+    checkPassword (loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
     }
 }
 
@@ -31,17 +31,6 @@ User.init(
     },
     {
         hooks: {
-            beforeBulkCreate: (bulkData) => {
-                try {
-                    bulkData.forEach(async user => {
-                        const salt = bcrypt.genSalt(10);
-                        user.password = await bcrypt.hash(user.password, salt);
-                        return user;
-                    });
-                } catch (e) {
-                    return e;
-                }
-            },
             beforeCreate: async (newUserData) => {
                 try {
                    const salt = bcrypt.genSalt(10);

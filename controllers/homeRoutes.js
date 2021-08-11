@@ -11,7 +11,9 @@ router.get("/", async (req, res) => {
             }, User]
         });
         const posts = allPosts.map(post => post.toJSON());
-        res.status(200).render("homepage", { posts })
+        res.status(200).render("homepage", { 
+            posts,
+            logged_in: req.session.logged_in })
     } catch (e) {
         console.log(e);
         res.status(500).json(e);
