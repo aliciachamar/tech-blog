@@ -1,27 +1,24 @@
-const commentFormHandler = async (event) => {
-    event.preventDefault();
+const delComment = async (event) => {
+  event.preventDefault();
 
-    const text = document.querySelector('#newComment').value.trim();
-    const postId = document.querySelector("#postId").textContent;
-  
-    if (text) {
-      const response = await fetch(`/api/comments/${postId}`, {
-        method: 'POST',
-        body: JSON.stringify({ text, postId }),
-        headers: { 'Content-Type': 'application/json' },
+  const commentId = event.target.getAttribute("id");
+
+  if (postId) {
+      const response = await fetch(`/api/posts/${postId}`, {
+        method: 'DELETE'
       });
   
       if (response.ok) {
-        document.location.reload();
+        document.location.replace("/api/users/dashboard");
       } else {
         alert(response.statusText);
       }
     }
 };
 
-document
-.querySelector('#comment-form')
-.addEventListener('click', commentFormHandler);
-
+const btns = document.querySelectorAll(".delete");
+for (let i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", delPost);
+};
 
   

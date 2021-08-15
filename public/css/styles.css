@@ -22,3 +22,7 @@ h2, h3, h4, h5 {
 #postId {
     font-size: 2px;
 }
+
+a {
+    text-decoration: none;
+}
