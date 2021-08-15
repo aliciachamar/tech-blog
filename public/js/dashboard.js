@@ -16,7 +16,7 @@ const delPost = async (event) => {
       }
 };
 
-const btns = document.querySelectorAll(".delete");
+const btns = document.querySelectorAll(".deletePost");
 for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", delPost);
 };

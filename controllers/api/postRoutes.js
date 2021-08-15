@@ -39,7 +39,7 @@ router.get("/update/:id", async (req, res) => {
         const post = singlePost.toJSON();
         res.status(200).render("updatePost", { 
             post,
-            logged_in: req.session.logged_in })
+            logged_in: req.session.logged_in });
     } catch (e) {
         res.status(500).json(e);
     }

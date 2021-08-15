@@ -6,7 +6,9 @@ const { User, Post, Comment } = require("../models");
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
-    await User.bulkCreate(userData);
+    await User.bulkCreate(userData, 
+        { individualHooks: true }
+    );
     await Post.bulkCreate(postData);
     await Comment.bulkCreate(commentData);
     console.log("Database seeded!");

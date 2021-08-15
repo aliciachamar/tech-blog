@@ -32,13 +32,8 @@ User.init(
     {
         hooks: {
             beforeCreate: async (newUserData) => {
-                try {
-                   const salt = bcrypt.genSalt(10);
-                   newUserData.password = await bcrypt.hash(newUserData.password, salt);
-                   return newUserData;
-                } catch (e) {
-                    return e;
-                }
+                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                return newUserData;
             }
         },
         sequelize,

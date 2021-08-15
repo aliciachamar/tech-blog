@@ -10,11 +10,9 @@
     {{comment.text}}
     </p>
     <br>
-    {{#if comment.user === req.session.user_id}}
-    <button><a href="/api/comments/update/{{comment.id}}">Update</a></button>
+    <button><a href="/api/comments/update/{{comment.id}}" id="{{comment.id}}">Update</a></button>
     <button class="delete" id="{{comment.id}}">Delete</button>
     <br>
-    {{/if}}
     {{/each}}
     <form id="comment-form" method="post" action="/api/comments/{{post.id}}">
         <textarea name="newComment" id="newComment" cols="50" rows="5" placeholder="Leave a comment..."></textarea>
@@ -22,4 +20,4 @@
     </form>
 </div>
 
-<script src="/js/comment.js"></script>
+<script src="/js/deleteComment.js"></script>
