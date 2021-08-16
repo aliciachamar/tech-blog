@@ -49,4 +49,6 @@
 
   ## Screenshots
 
-  ![App Screenshot](https://raw.githubusercontent.com/aliciachamar/tech-blog/main/assets/images/homepage-screenshot.jpg)
+  ![App Screenshot](https://raw.githubusercontent.com/aliciachamar/tech-blog/main/public/images/homepage-screenshot.jpg)
+
+  
