@@ -53,7 +53,7 @@ router.post("/", async (req, res) => {
             userId: req.session.user_id,
         });
         console.log(newPost);
-        res.status(200).redirect(`/api/users/dashboard`);
+        res.redirect(`/dashboard`);
     } catch (e) {
         res.status(500).json(e);
     }
