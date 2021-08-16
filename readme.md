@@ -44,9 +44,9 @@
   
   ## Heroku
 
-  The Tech Spot can be accessed [here]().
+  The Tech Spot can be accessed [here](https://the-tech-spot-blog.herokuapp.com/).
 
 
   ## Screenshots
 
-  ![App Screenshot](https://raw.githubusercontent.com/aliciachamar/tech-blog/main/assets/images/app-screenshot.PNG)
+  ![App Screenshot](https://raw.githubusercontent.com/aliciachamar/tech-blog/main/assets/images/homepage-screenshot.PNG)

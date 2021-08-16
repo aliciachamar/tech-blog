@@ -58,7 +58,7 @@ router.post("/:id", withAuth, async (req, res) => {
             userId: req.session.user_id,
             postId: req.params.id
         });
-        res.status(200).redirect(`/api/posts/${req.params.id}`);
+        res.redirect(`/api/posts/${req.params.id}`);
     } catch (e) {
         res.status(500).json(e);
     }
