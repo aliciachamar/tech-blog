@@ -39,9 +39,9 @@ router.post('/login', async (req, res) => {
       req.session.save(() => {
         req.session.user_id = userData.id;
         req.session.logged_in = true;
+        res.redirect("/dashboard");
       });
 
-      res.redirect("/dashboard");
     } catch (e) {
       console.log(e);
       res.status(500).json(e);
