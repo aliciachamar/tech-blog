@@ -8,21 +8,8 @@ router.post('/register', async (req, res) => {
       req.session.save(() => {
         req.session.user_id = userData.id;
         req.session.logged_in = true;
+        res.redirect("/dashboard");
       });
-      res.redirect("/dashboard");
-      // const allPosts = await Post.findAll({
-      //   where: {
-      //     userId: userData.id
-      //   },
-      //   include: [{
-      //       model: Comment,
-      //       include: [User]
-      //   }, User]
-      //   });
-      //   const posts = allPosts.map(post => post.toJSON());
-      //   res.status(200).render("dashboard", { 
-      //     posts,
-      //     logged_in: req.session.logged_in });
     } catch (e) {
       console.log(e);
       res.status(500).json(e);
