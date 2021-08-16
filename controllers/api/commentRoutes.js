@@ -17,7 +17,7 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.get("/update/:id", async (req, res) => {
+router.get("/update/:id", withAuth, async (req, res) => {
     try {
         const singleComment = await Comment.findByPk(req.params.id, {
             where: {
@@ -35,7 +35,7 @@ router.get("/update/:id", async (req, res) => {
     }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", withAuth, async (req, res) => {
     try {
         const updatedComment = await Comment.update(req.body, {
             where: {
@@ -50,7 +50,7 @@ router.put("/:id", async (req, res) => {
     }
 });
 
-router.post("/:id", async (req, res) => {
+router.post("/:id", withAuth, async (req, res) => {
     try {
         const newComment = await Comment.create({
             text: req.body.newComment,
@@ -64,7 +64,7 @@ router.post("/:id", async (req, res) => {
     }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
     try {
         const deletedComment = await Comment.destroy({
             where: {

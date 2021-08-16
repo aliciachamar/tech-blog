@@ -13,7 +13,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
         res.status(200).render("dashboard", {
             posts,
             logged_in: req.session.logged_in
-        })
+        });
     } catch (e) {
         res.status(500).json(e);
     }
@@ -76,12 +76,12 @@ router.post('/login', async (req, res) => {
         return;
       }
   
-      // const validPassword = await userData.checkPassword(req.body.password);
+      const validPassword = await userData.checkPassword(req.body.password);
   
-      // if (!validPassword) {
-      //   res.status(400).json({ message: 'Username or password is incorrect. Please try again.' });
-      //   return;
-      // }
+      if (!validPassword) {
+        res.status(400).json({ message: 'Username or password is incorrect. Please try again.' });
+        return;
+      }
   
       req.session.save(() => {
         req.session.user_id = userData.id;
@@ -102,13 +102,13 @@ router.post('/login', async (req, res) => {
   });
   
 router.post('/logout', (req, res) => {
-// if (req.session.logged_in) {
+if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).redirect("/");
     });
-// } else {
-//     res.status(500).end();
-// }
+} else {
+    res.status(500).end();
+}
 });
 
 module.exports = router;
