@@ -49,4 +49,4 @@
 
   ## Screenshots
 
-  ![App Screenshot](https://raw.githubusercontent.com/aliciachamar/tech-blog/main/assets/images/homepage-screenshot.PNG)
+  ![App Screenshot](https://raw.githubusercontent.com/aliciachamar/tech-blog/main/assets/images/homepage-screenshot.jpg)
