@@ -53,16 +53,8 @@ router.post('/login', async (req, res) => {
         req.session.user_id = userData.id;
         req.session.logged_in = true;
       });
-      const allPosts = await Post.findAll({
-        include: [{
-            model: Comment,
-            include: [User]
-        }, User]
-        });
-      const posts = allPosts.map(post => post.toJSON());
-      res.status(200).render("homepage", { 
-        posts,
-        logged_in: req.session.logged_in });
+
+      res.redirect("/dashboard");
     } catch (e) {
       console.log(e);
       res.status(500).json(e);
