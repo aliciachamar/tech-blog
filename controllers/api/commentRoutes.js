@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get("/:id", withAuth, async (req, res) => {
+router.get("/:id", async (req, res) => {
     try {
         const user = await Comment.findByPk({
             where: {
@@ -17,7 +17,7 @@ router.get("/:id", withAuth, async (req, res) => {
     }
 });
 
-router.get("/update/:id", withAuth, async (req, res) => {
+router.get("/update/:id", async (req, res) => {
     try {
         const singleComment = await Comment.findByPk(req.params.id, {
             where: {
@@ -50,7 +50,7 @@ router.put("/:id", async (req, res) => {
     }
 });
 
-router.post("/:id", withAuth, async (req, res) => {
+router.post("/:id", async (req, res) => {
     try {
         const newComment = await Comment.create({
             text: req.body.newComment,
