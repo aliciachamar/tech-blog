@@ -15,6 +15,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
             logged_in: req.session.logged_in
         });
     } catch (e) {
+        console.log(e);
         res.status(500).json(e);
     }
 });
@@ -37,11 +38,7 @@ router.get("/register", (req, res) => {
 
 router.post('/register', async (req, res) => {
     try {
-      const userData = await User.create({
-          username: req.body.username,
-          password: req.body.password
-      });
-  
+      const userData = await User.create(req.body);
       req.session.save(() => {
         req.session.user_id = userData.id;
         req.session.logged_in = true;
@@ -71,7 +68,7 @@ router.post('/login', async (req, res) => {
           where: { 
               username: req.body.username 
             } 
-        });
+      });
   
       if (!userData) {
         res.status(400).json({ message: 'Username or password is incorrect. Please try again.' });
@@ -108,10 +105,10 @@ router.post('/login', async (req, res) => {
 router.post('/logout', (req, res) => {
 if (req.session.logged_in) {
     req.session.destroy(() => {
-      res.status(204).redirect("/");
+      res.status(204).end();
     });
 } else {
-    res.status(500).end();
+    res.status(404).end();
 }
 });
 
